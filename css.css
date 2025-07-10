@@ -1,0 +1,153 @@
+*{
+    --percent:50;
+}
+body{
+    margin: 0px;
+    box-sizing: border-box;
+    background: url(https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/5baf8325-ed69-40b0-b9d2-d8c5d2bde3b0);
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    width: 95%;
+    height: 95%;
+    background-color: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 60px 10fr;
+    border-radius: 3vh;
+    box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.205);
+}
+nav{
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    height: 100%;
+    background-color: #493971;
+}
+ul{
+    justify-content: center;
+    align-items: center; 
+}
+li {
+    list-style-type:none ;
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+}
+
+section{
+    width: 100%;
+    height: 100%;
+    font-family: 'Nunito';
+}
+.section-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 1vw 2vh 1vw;
+    column-gap: 5vw;
+}
+.popular-acti{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex: 3;
+    border-radius: 3vh;
+    width: 100%;
+    height: auto;
+    background-color: #f6f7fb;
+    grid-template-rows: 1.2fr 1fr;
+    row-gap: 10px;
+    position: relative;
+    padding: 0 2vw 0 2vw;
+}
+.profile{
+    position: relative;
+    flex: 1;
+    border-radius: 3vh;
+    width: 100%;
+    height: 100%;
+    background-color: #f6f7fb;
+}
+.images{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 130px);
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.sport-img{
+    width: 100%;
+    height: 100%;
+    border-radius: 2vh;
+    position: relative;
+}
+.sport::after{
+    --percent:50;
+    opacity: 1;
+    content: " ";
+    position: absolute;
+    height: 100%;
+    width: 100%;    
+    top: 50%;
+    left: 50%;
+    background-image: linear-gradient(transparent calc(var(--percent)*1%), #493971 95%);
+    translate: -50% -50%;
+    border-radius: 2vh;
+    z-index: 10;
+}
+.Running{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    /* grid-row: 1 / span 2; */
+}
+.Swimming{
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.Tennis , .Running , .Cycling , .Yoga , .Hiking , .Swimming{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+}
+.sport-p{
+    position: absolute;
+    color: white;
+    z-index: 100;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    right: 5%;
+    bottom: 0%;
+    line-height: 0.1rem;
+    opacity: 1;
+}
+.sport:hover .sport-p{
+    animation: fade 500ms forwards;
+}
+.sport::after:hover{
+    animation: percentage 300ms forwards;
+}
+@property --percent{
+    syntax: "<number>";
+    initial-value: 50;
+    inherits: true;
+}
+@keyframes percentage{
+    from{--percent:50}
+    to{--percent :100}
+}
+@keyframes fade {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
