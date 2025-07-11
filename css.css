@@ -5,7 +5,7 @@ body{
     margin: 0px;
     box-sizing: border-box;
     background: url(https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/5baf8325-ed69-40b0-b9d2-d8c5d2bde3b0);
-    height: 120vh;
+    height: 130vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,9 +60,8 @@ section{
     height: auto;
     background-color: #f6f7fb;
     grid-template-rows: 1.2fr 1fr;
-    row-gap: 10px;
     position: relative;
-    padding: 0 2vw 0 2vw;
+    padding: 0px 2vw 0px 2vw;
 }
 .profile{
     position: relative;
@@ -88,18 +87,18 @@ section{
     position: relative;
 }
 .sport::after{
-    --percent:50;
-    opacity: 1;
+    opacity: 0.7;
     content: " ";
     position: absolute;
     height: 100%;
     width: 100%;    
     top: 50%;
     left: 50%;
-    background-image: linear-gradient(transparent calc(var(--percent)*1%), #493971 95%);
+    background-image: linear-gradient(transparent 50%, #493971 95%);
     translate: -50% -50%;
     border-radius: 2vh;
     z-index: 10;
+    
 }
 .Running{
     grid-column-start: 2;
@@ -128,26 +127,180 @@ section{
     font-weight: 500;
     letter-spacing: 1px;
     right: 5%;
-    bottom: 0%;
+    bottom: 10%;
     line-height: 0.1rem;
     opacity: 1;
 }
 .sport:hover .sport-p{
-    animation: fade 500ms forwards;
+    animation: fadeOut 500ms ease-out forwards;
 }
-.sport::after:hover{
-    animation: percentage 300ms forwards;
+.sport:hover::after{
+    animation: fadeOut 500ms ease-out forwards;
 }
-@property --percent{
-    syntax: "<number>";
-    initial-value: 50;
-    inherits: true;
+.sport:not(:hover) .sport-p{
+    animation: fadeIn 500ms ease-out forwards;
 }
-@keyframes percentage{
-    from{--percent:50}
-    to{--percent :100}
+.sport:not(:hover)::after{
+    animation: fadeIn 500ms ease-out forwards;
 }
-@keyframes fade {
+@keyframes fadeIn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes fadeOut {
     from{opacity: 1;}
     to{opacity: 0;}
+}
+
+
+.schedule{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5vw;
+}
+.weekly-sched{
+    flex: 1.5;
+    text-align: left;
+    display: grid;
+}
+.personal-bests{
+    flex: 1;
+    text-align: left;
+}
+.dates{
+    display: grid;
+    grid-template-rows: repeat(4 ,70px);
+    row-gap: 5px;
+}
+.date{
+    background-color: red;
+    padding: 1vh 1vw 1vh 1vw;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 0.5fr 3fr 1fr;
+    border-radius:2vh ;
+    color: #484d53;
+}
+.swimming-date{
+    background-color: #7c88e080;
+    background-image: linear-gradient(240deg, #7c88e0 0%, #c3f4fc 100%);
+}
+.yoga-date{
+    background-color: #aee2a4a1;
+  background-image: linear-gradient(240deg, #e5a243ab 0%, #f7f7aa 90%);
+}
+.tennis-date{
+    background-color: #ecfcc376;
+    background-image: linear-gradient(240deg, #97e7d1 0%, #ecfcc3 100%);
+}
+.hiking-date{
+    background-color: #e6a7c3b5;
+  background-image: linear-gradient(240deg, #fc8ebe 0%, #fce5c3 100%);
+}
+.personal-info{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 5px;
+    row-gap: 5px;
+}
+.fast{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.info-items{
+    text-align: center;
+    background-color: brown;
+}
+.img-prof{
+    width: 20px;
+    height: 20px;
+}
+.btn{
+    height: 70%;
+    border-radius: 4vh;
+    border: none;
+    cursor: pointer;
+    color: #484d53;
+    font-size: 1rem;
+    transition-duration: 300ms;
+    background-color: white;
+    box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.205);
+}
+.btn:hover{
+    background-color: white;
+    animation: scaling 500ms ease forwards;
+}
+@keyframes scaling {
+    0% ,100%{
+      transform: scaleX(1) scaleY(1); 
+    }
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+    50% {
+      transform: scaleX(1.1) scaleY(0.9);
+    }
+    75% {
+      transform: scaleX(0.95) scaleY(1.05); 
+    }
+  }
+
+h1 ,h2 ,p{
+    margin: 0px;
+}
+.day > p {
+    text-transform: uppercase;
+}
+.activity{
+    padding-left: 1vw;
+    border-left: 3px solid #484d53;
+}
+.info-items >p{
+    font-size: 1rem;
+    font-weight: 700;
+}
+.info-items{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2vh;
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+.fast{
+    padding: 7vh 1vw 7vh 1vw    ;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5vw;
+    background-color: rgba(185, 159, 237, 0.6);
+}
+.fast> img{
+    width: 100%;
+    height: 100%;
+}
+.longest{
+    background-color: rgba(238, 184, 114, 0.6);
+    grid-template-rows: 40% 60% ;
+    row-gap: 2vh;
+    overflow: hidden;
+    padding: 1vh 0px 5vh 0px;
+}
+.longest > img , .roller > img{
+    width: 50%;
+    height: 70%;
+    padding: 0px 1vw 0px 1vw;
+}
+.roller{
+    grid-template-rows: 40% 60% ;
+    row-gap: 2vh;
+    background-color: rgba(184, 224, 192, 0.6);
+    overflow: hidden;
+    padding: 1vh 0px 5vh 0px;
+}
+.info-items:hover{
+    transform:scale(1.02);
 }
