@@ -1,4 +1,5 @@
 *{
+    box-sizing: border-box;
     --percent:50;
 }
 body{
@@ -6,12 +7,12 @@ body{
     box-sizing: border-box;
     background: url(https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/5baf8325-ed69-40b0-b9d2-d8c5d2bde3b0);
     height: 130vh;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
 }
 main{
-    width: 95%;
+    width: 90vw;
     height: 95%;
     background-color: white;
     display: grid;
@@ -24,37 +25,99 @@ main{
 nav{
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
+    width: 100%;
     height: 100%;
     background-color: #493971;
 }
 ul{
+    display: flex;
     justify-content: center;
     align-items: center; 
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    padding: 0px;
+    margin: 0px;
+    
 }
 li {
+    position: relative;
+    display: block;
+    justify-content: center;
+    align-items: center; 
     list-style-type:none ;
     width: 100%;
     height: 100%;
-    background-color: aqua;
+    padding: 0px;
+    margin: 0px;
 }
-
+li > a{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1rem;
+    padding: 15px 0;
+    margin-left: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    text-align: center;
+}
+.icon{
+    position: relative;
+    color: white;
+    border-radius: 2vh;
+    width: 60px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+.home-icon::before{
+    content: "\f015";
+    font-family: FontAwesome;
+    font-style: normal;
+}
+.prof-icon::before{
+    content: "\f007";
+    font-family: FontAwesome;
+    font-style: normal;
+}
+.calendar-icon::before{
+    content: "\f274";
+    font-family: FontAwesome;
+    font-style: normal;
+}
+.run-icon::before{
+    content: "\f21d";
+    font-family: FontAwesome;
+    font-style: normal;
+}
+.settings-icon::before{
+    content: "\f1de";
+    font-family: FontAwesome;
+    font-style: normal;
+}
 section{
     width: 100%;
     height: 100%;
     font-family: 'Nunito';
 }
 .section-main{
-    display: flex;
+    width: 100%;
+    height: 100%;
+    display: grid;
     justify-content: center;
     align-items: center;
     padding: 2vh 1vw 2vh 1vw;
     column-gap: 5vw;
+    grid-template-columns: 3fr 1fr;
 }
 .popular-acti{
     display: grid;
     justify-content: center;
     align-items: center;
-    flex: 3;
     border-radius: 3vh;
     width: 100%;
     height: auto;
@@ -65,11 +128,14 @@ section{
 }
 .profile{
     position: relative;
-    flex: 1;
     border-radius: 3vh;
     width: 100%;
     height: 100%;
     background-color: #f6f7fb;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: 2fr 3fr;
 }
 .images{
     display: grid;
@@ -154,18 +220,17 @@ section{
 
 
 .schedule{
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
+    grid-template-columns: 2fr 1.5fr;
     column-gap: 5vw;
 }
 .weekly-sched{
-    flex: 1.5;
     text-align: left;
     display: grid;
 }
 .personal-bests{
-    flex: 1;
     text-align: left;
 }
 .dates{
@@ -304,3 +369,48 @@ h1 ,h2 ,p{
 .info-items:hover{
     transform:scale(1.02);
 }
+
+
+
+.my-prof{
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    display: grid;
+    grid-template-rows: 1fr 2.5fr;
+}
+.name{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 3fr;
+}
+.active-cal{
+    width: 100%;
+    height: 100%;
+    background-color: green;
+}
+.others-prof{
+    width: 100%;
+    height: 100%;
+    background-color: #7c88e0;
+}
+.icon-prof{
+    position: relative;
+}
+
+.bell-icon::before{
+    content: "\f0f3";
+    font-family: FontAwesome;
+    font-style: normal;
+}
+.msg-icon::before{
+    content: "\f27a";
+    font-family: FontAwesome;
+    font-style: normal;
+}
+
+
